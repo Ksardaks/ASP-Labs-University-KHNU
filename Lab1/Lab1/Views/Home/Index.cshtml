@@ -1,0 +1,19 @@
+﻿@model List<Lab1.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="row">
+        @foreach (var Item in Model)
+        {
+            <div class="card col-3 m-5 p-2" style="">
+                <img src="~/File/@Item.File" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Item.ProductName</h5>
+                    <p class="card-text">@Item.Description</p>
+                    <a href="~/Home/Buy/@Item.Id" class="btn btn-primary">Придбати за @Item.Price грн.</a>
+                </div>
+            </div>
+        }
+
+    </div>

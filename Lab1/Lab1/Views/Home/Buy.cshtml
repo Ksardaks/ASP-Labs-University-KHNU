@@ -1,0 +1,32 @@
+﻿@model Lab1.Models.Product
+@{
+    ViewBag.Title = "Buy";
+}
+
+    <div class="row">
+        <h4 class="col-12 mt-5">Придбання товару: "@Model.ProductName", @Model.Price грн. за одиницю товару</h4>
+        <img src="~/File/@Model.File" class="col-4 mt-5 mb-5" />
+        @using (Html.BeginForm("Buy", "Home", FormMethod.Post, new { @class = "form-horizontal col-6 mt-5 mb-5 ml-5", role = "form" }))
+        {
+            <input hidden value="@Model.Id" name="Id" />
+            <div class="mb-3">
+                <label for="Count" class="form-label">Кількість</label>
+                <input type="number" class="form-control" name="Count" id="Count">
+            </div>
+            <div class="mb-3">
+                <label for="PIB" class="form-label">ПІБ</label>
+                <input type="text" class="form-control" name="PIB" id="PIB">
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Адресса</label>
+                <input type="text" class="form-control" name="Address" id="Address">
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label">Номер телефону</label>
+                <input type="text" class="form-control" name="Phone" id="Phone">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Підтвердити</button>
+        }
+    </div>
+
