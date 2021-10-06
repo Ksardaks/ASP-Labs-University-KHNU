@@ -95,3 +95,5 @@ D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\bin\ru\System.Web.WebPages.
 D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\obj\Debug\Lab2.csproj.CopyComplete
 D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\obj\Debug\Lab1.Migrations._5.resources
 D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\obj\Debug\Lab1.Migrations._6.resources
+D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\obj\Debug\Lab1.Migrations._7.resources
+D:\University\ASP\ASP-Labs-University-KHNU\Lab2\Lab1\obj\Debug\Lab1.Migrations._8.resources

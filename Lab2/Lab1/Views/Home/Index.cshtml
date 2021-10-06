@@ -6,7 +6,7 @@
     <div class="row">
         @foreach (var Item in Model)
         {
-            <a href="#" class="card col-3 m-5 p-2" style="color: black; text-decoration: none;">
+            <a href="~/Home/Auto/@Item.Id" class="card col-3 m-5 p-2" style="color: black; text-decoration: none;">
                 <img src="~/File/@Item.File" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@Item.Manufacturer</h5>
