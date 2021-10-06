@@ -1,0 +1,19 @@
+﻿@model List<Lab1.Models.Auto>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="row">
+        @foreach (var Item in Model)
+        {
+            <a href="#" class="card col-3 m-5 p-2" style="color: black; text-decoration: none;">
+                <img src="~/File/@Item.File" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Item.Manufacturer</h5>
+                    <p class="card-text">@Item.AutoModel</p>
+                    <p class="card-text">Рік випуску: @Item.Year</p>
+                    <p class="card-text">Ціна: @Item.Price грн.</p>
+                </div>
+            </a>        
+        }
+    </div>
