@@ -14,5 +14,11 @@ namespace Lab1.Controllers
             DBContext Context = new DBContext();
             return View(Context.Autos.ToList());
         }
+
+        public ActionResult Auto(int Id)
+        {
+            DBContext Context = new DBContext();
+            return View(Context.Autos.Find(Id));
+        }
     }
 }
