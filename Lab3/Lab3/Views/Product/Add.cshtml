@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+    <div class="row col-12">
+        @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "text-center row mt-5", role = "form", enctype = "multipart/form-data" }))
+        {
+                <label class="col-12 control-label">Назва</label>
+                <input type="text" name="Name" class="form-control mb-5" />
+
+                <label class="col-md-12 control-label">Опис</label>
+                <textarea type="text" name="Desc" class="form-control mb-5"></textarea>
+
+                <label class="col-md-12 control-label">Ціна</label>
+                <input type="number" name="Price" class="form-control mb-5">
+
+                <label class="col-md-12 control-label">Файл</label>
+                <input type="file" name="File" class="form-control mb-5">
+
+                <input type="submit" value="Зберегти" class="btn btn-outline-success col-5" />
+                <a href="~/Product/Table" class="btn btn-outline-primary offset-2 col-5">Відмінити</a>
+        }
+    </div>
+

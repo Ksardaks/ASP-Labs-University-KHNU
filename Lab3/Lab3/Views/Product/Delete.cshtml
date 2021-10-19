@@ -1,0 +1,23 @@
+﻿@model Lab3.Models.Product
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <div class="row col-12 mt-5">
+        <h3>Ви дійсно бажаєте видалити продукт "@Model.ProductName"</h3>       
+        <div class="form-group mt-2">
+            <div class="col-md-12">
+                <img src="~/File/@Model.File" width="400"/>
+            </div>
+        </div>
+        <div class="form-group mt-2">
+            <div class="col-md-12">
+                <p>@Model.Description</p>
+            </div>
+        </div>
+        <div class="form-group mt-5">
+            <a href="~/Product/Confirm/@Model.Id" class="btn btn-outline-danger col-5">Видалити</a>
+            <a href="~/Product/Table" class="btn btn-outline-primary offset-1 col-5">Відмінити</a>
+        </div>
+    </div>
+

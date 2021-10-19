@@ -1,0 +1,31 @@
+﻿@model List<Lab3.Models.Product>
+@{
+    ViewBag.Title = "Table";
+}
+
+    <div class="row mt-5">
+        <a href="~/Product/Add" class="btn btn-outline-primary col-12">Додати</a>
+        <table class="mt-5 table-bordered table table-striped col-12" style="margin-left: auto; margin-right: auto;">
+            <tr>
+                <th></th>
+                <th>Назва</th>
+                <th>Опис</th>
+                <th>Ціна</th>
+                <th>Операції</th>
+            </tr>
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td><img src="~/File/@Item.File" width="100"/></td>
+                    <td>@Item.ProductName</td>
+                    <td>@Item.Description</td>
+                    <td>@Item.Price</td>
+                    <td>
+                        <a href="~/Product/Edit/@Item.Id" class="btn btn-outline-primary">Редагувати</a>
+                        <a href="~/Product/Delete/@Item.Id" class="btn btn-outline-danger">Видалити</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
