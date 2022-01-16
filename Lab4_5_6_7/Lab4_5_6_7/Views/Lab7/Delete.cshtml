@@ -1,0 +1,18 @@
+﻿@model Lab4_5_6_7.Models.Product
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row col-12 mt-5">
+    <h3>@Resources.Resource.Confirm "@Model.ProductName"</h3>
+    <div class="form-group mt-2">
+        <div class="col-md-12">
+            <img src="~/File/@Model.File" width="400" />
+        </div>
+    </div>
+    <div class="form-group mt-5">
+        <a href="~/Lab7/Confirm/@Model.Id" class="btn btn-outline-danger col-5">@Resources.Resource.Delete</a>
+        <a href="~/Lab7/ProductTable" class="btn btn-outline-primary offset-1 col-5">@Resources.Resource.Cancel</a>
+    </div>
+</div>
+

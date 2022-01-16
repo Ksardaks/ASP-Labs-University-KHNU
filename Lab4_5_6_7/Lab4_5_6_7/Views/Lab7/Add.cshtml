@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+    <div class="row col-12">
+        @using (Html.BeginForm("Add", "Lab7", FormMethod.Post, new { @class = "text-center row mt-5", role = "form", enctype = "multipart/form-data" }))
+        {
+            <label class="col-12 control-label">@Resources.Resource.Name</label>
+            <input type="text" name="Name" class="form-control mb-5" />
+
+            <label class="col-12 control-label">@Resources.Resource.Name EN</label>
+            <input type="text" name="NameEN" class="form-control mb-5" />
+
+            <a class="btn btn-success col-12" data-ajax="true" data-ajax-mode="before" data-ajax-update="#File" href="/Lab4/Category">@Resources.Resource.AddCategory</a>
+            <table id="File" cellspacing="10" cellpadding="10" class="col-12 mt-5">
+            </table>
+
+            <label class="col-md-12 control-label">@Resources.Resource.Price</label>
+            <input type="number" name="Price" class="form-control mb-5">
+
+            <label class="col-md-12 control-label">@Resources.Resource.Price EN</label>
+            <input type="number" name="PriceEN" class="form-control mb-5">
+
+            <label class="col-md-12 control-label">@Resources.Resource.File</label>
+            <input type="file" name="File" class="form-control mb-5">
+
+            <input type="submit" value="@Resources.Resource.Submit" class="btn btn-outline-success col-5" />
+            <a href="~/Product/ProductTable" class="btn btn-outline-primary offset-2 col-5">Відмінити</a>
+        }
+    </div>
+

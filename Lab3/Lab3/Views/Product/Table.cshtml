@@ -10,6 +10,7 @@
                 <th></th>
                 <th>Назва</th>
                 <th>Опис</th>
+                <th>Категорії</th>
                 <th>Ціна</th>
                 <th>Операції</th>
             </tr>
@@ -19,10 +20,11 @@
                     <td><img src="~/File/@Item.File" width="100"/></td>
                     <td>@Item.ProductName</td>
                     <td>@Item.Description</td>
+                    <td>@Item.Cate</td>
                     <td>@Item.Price</td>
                     <td>
                         <a href="~/Product/Edit/@Item.Id" class="btn btn-outline-primary">Редагувати</a>
-                        <a href="~/Product/Delete/@Item.Id" class="btn btn-outline-danger">Видалити</a>
+                        <a href="~/Product/Delete/@Item.Id" class="btn btn-outline-danger mt-3">Видалити</a>
                     </td>
                 </tr>
             }

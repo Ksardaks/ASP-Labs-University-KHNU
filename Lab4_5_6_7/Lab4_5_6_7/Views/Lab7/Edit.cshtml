@@ -1,0 +1,68 @@
+﻿@model Lab4_5_6_7.Models.Product
+@using Lab4_5_6_7.Models
+@{
+    bool EN = false;
+    if (Request.Cookies.Get("lang") != null)
+    {
+        if (Request.Cookies.Get("lang").Value == "en")
+        {
+            EN = true;
+        }
+    }
+    ApplicationDbContext Context = new ApplicationDbContext();
+    ViewBag.Title = "Edit";
+}
+
+    <div class="row col-12">
+        @using (Html.BeginForm("Edit", "Lab7", FormMethod.Post, new { @class = "text-center row mt-5 text-center", role = "form", enctype = "multipart/form-data" }))
+        {
+            <input hidden name="Id" value="@Model.Id" />
+
+            <label class="col-12 control-label">@Resources.Resource.Name UA</label>
+            <input type="text" name="Name" value="@Model.ProductName" class="form-control mb-5" />
+
+            <label class="col-12 control-label">@Resources.Resource.Name EN</label>
+            <input type="text" name="NameEN" value="@Model.ProductNameEN" class="form-control mb-5" />
+
+            <a class="btn btn-success col-12" data-ajax="true" data-ajax-mode="before" data-ajax-update="#File" href="/Lab7/Category">Додати категорію</a>
+            <table id="File" cellspacing="10" cellpadding="10" class="col-12 mt-5">
+                @if (Model.Categories != null)
+                {
+                    foreach (var Item in Model.Categories)
+                    {
+                        <tr>
+                            <td class="mb-3 text-center">
+                                <label>
+                                    @if (EN)
+                                    {
+                                        @(Item.CategoryNameEN)
+                                    }
+                                    else
+                                    {
+                                        @(Item.CategoryName)
+                                    }
+                                    <label />
+                            </td>
+                            <td width="20%">
+                                <a data-ajax="true" data-ajax-update="" href="/Lab7/DeleteCategory?Id=@Item&ModelId=@Model.Id" class="btn btn-danger col-12" onclick="$(this).parent().parent().remove();">@Resources.Resource.Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+            <label class="col-md-12 control-label">@Resources.Resource.Price UA</label>
+            <input type="number" name="Price" value="@Model.Price" class="form-control mb-5">
+
+            <label class="col-md-12 control-label">@Resources.Resource.Price EN</label>
+            <input type="number" name="PriceEN" value="@Model.PriceEN" class="form-control mb-5">
+
+            <label class="col-md-12 control-label">@Resources.Resource.File</label>
+            <input type="file" name="File" class="form-control mb-5">
+
+            <input type="submit" value="@Resources.Resource.Submit" class="btn btn-outline-success col-5" />
+            <a href="~/Lab7/ProductTable" class="btn btn-outline-primary offset-2 col-5">@Resources.Resource.Cancel</a>
+        }
+    </div>
+

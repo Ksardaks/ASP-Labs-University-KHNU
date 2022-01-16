@@ -1,0 +1,25 @@
+﻿@model List<Lab4_5_6_7.Models.Category>
+@{
+    ViewBag.Title = "Table";
+}
+
+<div class="row mt-5">
+    <a href="~/Lab4/CatAdd" class="btn btn-outline-primary col-12">Додати</a>
+    <table class="mt-5 table-bordered table table-striped col-12" style="margin-left: auto; margin-right: auto;">
+        <tr>
+            <th>Назва</th>
+            <th>Операції</th>
+        </tr>
+        @foreach (var Item in Model)
+        {
+            <tr>
+                <td>@Item.CategoryName</td>
+            <td>
+                <a href="~/Lab4/CatEdit/@Item.Id" class="btn btn-outline-primary">Редагувати</a>
+                <a href="~/Lab4/CatDelete/@Item.Id" class="btn btn-outline-danger">Видалити</a>
+            </td>
+        </tr>
+    }
+    </table>
+</div>
+

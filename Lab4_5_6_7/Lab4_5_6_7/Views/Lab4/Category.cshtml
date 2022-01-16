@@ -1,0 +1,15 @@
+﻿@model List<Lab4_5_6_7.Models.Category>
+<tr>
+    <td class="mb-3">
+        <select name="Categories" class="form-select">
+            <option selected value="-1">- - - -</option>
+            @foreach (var Item in Model)
+            {
+                <option selected value="@Item.Id">@Item.CategoryName</option>
+            }
+        </select>
+    </td>
+    <td width="20%">
+        <button class="btn btn-danger col-12" onclick="$(this).parent().parent().remove();">Видалити</button>
+    </td>
+</tr>

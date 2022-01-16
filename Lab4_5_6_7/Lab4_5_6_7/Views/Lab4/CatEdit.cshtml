@@ -1,0 +1,20 @@
+﻿@model Lab4_5_6_7.Models.Category
+@using Lab4_5_6_7.Models
+@{
+    ApplicationDbContext Context = new ApplicationDbContext();
+    ViewBag.Title = "Edit";
+}
+
+<div class="row col-12">
+    @using (Html.BeginForm("CatEdit", "Lab4", FormMethod.Post, new { @class = "text-center row mt-5 text-center", role = "form", enctype = "multipart/form-data" }))
+    {
+        <input hidden name="Id" value="@Model.Id" />
+
+        <label class="col-12 control-label">Назва</label>
+        <input type="text" name="Name" value="@Model.CategoryName" class="form-control mb-5" />
+
+        <input type="submit" value="Зберегти" class="btn btn-outline-success col-5" />
+        <a href="~/Lab4/CategoryTable" class="btn btn-outline-primary offset-2 col-5">Відмінити</a>
+    }
+</div>
+

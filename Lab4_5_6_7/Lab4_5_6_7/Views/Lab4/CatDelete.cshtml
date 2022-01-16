@@ -1,0 +1,13 @@
+﻿@model Lab4_5_6_7.Models.Category
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row col-12 mt-5">
+    <h3>Ви дійсно бажаєте видалити категорію "@Model.CategoryName"</h3>
+    <div class="form-group mt-5">
+        <a href="~/Lab4/CatConfirm/@Model.Id" class="btn btn-outline-danger col-5">Видалити</a>
+        <a href="~/Lab4/CategoryTable" class="btn btn-outline-primary offset-1 col-5">Відмінити</a>
+    </div>
+</div>
+

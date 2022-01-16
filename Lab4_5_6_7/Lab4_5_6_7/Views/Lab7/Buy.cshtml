@@ -1,0 +1,40 @@
+﻿@model Lab4_5_6_7.Models.Product
+@{
+    bool EN = false;
+    if (Request.Cookies.Get("lang") != null)
+    {
+        if (Request.Cookies.Get("lang").Value == "en")
+        {
+            EN = true;
+        }
+    }
+    ViewBag.Title = "Buy";
+}
+
+<div class="row">
+    <h4 class="col-12 mt-5">@Resources.Resource.Buy: "@if (EN) { @(Model.ProductNameEN) } else { @(Model.ProductName) }", @if (EN) { @(Model.PriceEN) }else { @(Model.Price) } @Resources.Resource.Value @Resources.Resource.For</h4>
+    <img src="~/File/@Model.File" class="col-4 mt-5 mb-5" />
+    @using (Html.BeginForm("Buy", "Lab7", FormMethod.Post, new { @class = "form-horizontal col-6 mt-5 mb-5 ml-5", role = "form" }))
+    {
+        <input hidden value="@Model.Id" name="Id" />
+        <div class="mb-3">
+            <label for="Count" class="form-label">@Resources.Resource.Count</label>
+            <input type="number" class="form-control" name="Count" id="Count">
+        </div>
+        <div class="mb-3">
+            <label for="PIB" class="form-label">@Resources.Resource.PIB</label>
+            <input type="text" class="form-control" name="PIB" id="PIB">
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">@Resources.Resource.Address</label>
+            <input type="text" class="form-control" name="Address" id="Address">
+        </div>
+        <div class="mb-3">
+            <label for="Phone" class="form-label">@Resources.Resource.Phone</label>
+            <input type="text" class="form-control" name="Phone" id="Phone">
+        </div>
+
+        <button type="submit" class="btn btn-primary">@Resources.Resource.Submit</button>
+    }
+</div>
+

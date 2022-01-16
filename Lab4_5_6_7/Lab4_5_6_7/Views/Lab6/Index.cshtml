@@ -1,0 +1,46 @@
+﻿@model List<Lab4_5_6_7.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken();
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row mt-5">
+        @if (User.IsInRole("Administrator"))
+        {
+            <a class="col-3 btn btn-primary" href="~/Lab4/ProductTable">Таблиця продукції</a>
+            <a class="col-3 btn btn-primary" href="~/Lab4/CategoryTable">Таблиця категорій</a>
+        }
+
+        <a class="col-3 btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Вийти</a>
+
+    </div>
+}
+else
+{
+    <div class="row mt-5">
+        <a class="col-3 btn btn-primary" href="~/Account/Login">Авторизація</a>
+        <a class="col-3 btn btn-primary" href="~/Account/Register">Реєстрація</a>
+    </div>
+}
+
+
+<div class="row">
+    @foreach (var Item in Model)
+    {
+        <a href="~/Lab4/Buy/@Item.Id" class="card col-3 m-5 p-2" style="color: black; text-decoration: none;">
+            <img src="~/File/@Item.File" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Item.ProductName</h5>
+                <p class="card-text">
+                    @foreach (var category in Item.Categories)
+                    {@(category.CategoryName + " ")}
+                </p>
+                <p class="card-text">Ціна: @Item.Price грн.</p>
+            </div>
+        </a>
+    }
+</div>

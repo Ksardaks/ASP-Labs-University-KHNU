@@ -1,0 +1,40 @@
+﻿@model Lab4_5_6_7.Models.Validation
+
+    <div class="row">
+        @using (Html.BeginForm("Index", "Lab5", FormMethod.Post, new { @class = "form-horizontal col-6 mt-5 mb-5 ml-5", role = "form" }))
+        {
+            <div class="mb-3">
+                <label for="Count" class="form-label">Кількість</label>
+                <input type="number" class="form-control" value="@Model.Count" name="Count" id="Count">
+                @Html.ValidationMessageFor(model => model.Count)
+            </div>
+            <div class="mb-3">
+                <label for="PIB" class="form-label">Призвіще</label>
+                <input type="text" class="form-control" value="@Model.Surname" name="Surname" id="Name">
+                @Html.ValidationMessageFor(model => model.Surname)
+            </div>
+            <div class="mb-3">
+                <label for="PIB" class="form-label">Ім'я</label>
+                <input type="text" class="form-control" value="@Model.Name" name="Name" id="Name">
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="mb-3">
+                <label for="PIB" class="form-label">По батькові</label>
+                <input type="text" class="form-control" value="@Model.SecondName" name="SecondName" id="SecondName">
+                @Html.ValidationMessageFor(model => model.SecondName)
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Адресса</label>
+                <input type="text" class="form-control" value="@Model.Address" name="Address" id="Address">
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label">Номер телефону</label>
+                <input type="text" class="form-control" value="@Model.Phone" name="Phone" id="Phone">
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+
+            <button type="submit" class="btn btn-primary">Підтвердити</button>
+        }
+    </div>
+

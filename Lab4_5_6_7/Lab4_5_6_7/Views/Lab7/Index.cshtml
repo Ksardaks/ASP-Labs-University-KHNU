@@ -1,0 +1,74 @@
+﻿@model List<Lab4_5_6_7.Models.Product>
+@{
+    bool EN = false;
+    if (Request.Cookies.Get("lang") != null)
+    {
+        if(Request.Cookies.Get("lang").Value == "en")
+        {
+            EN = true;
+        }
+    }
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<div class="row mt-5">
+    <div class="col-3">
+        <a class=" col-12 btn btn-primary" href="~/Lab7/ProductTable">@Resources.Resource.ProductTable</a>
+    </div>
+    <div class="col-3">
+        <a class="col-12 btn btn-primary" href="~/Lab7/CategoryTable">@Resources.Resource.CategoryTable</a>
+    </div>
+    <div class="col-3">
+        <a class=" col-12 btn btn-primary" href="~/Lab7/ChangeCulture/?lang=uk">UA</a>
+    </div>
+    <div class="col-3">
+        <a class="col-12 btn btn-primary" href="~/Lab7/ChangeCulture/?lang=en">EN</a>
+    </div>
+</div>
+<div class="row">
+    @foreach (var Item in Model)
+    {
+        <a href="~/Lab7/Buy/@Item.Id" class="card col-3 m-5 p-2" style="color: black; text-decoration: none;">
+            <img src="~/File/@Item.File" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @if(EN)
+                    {
+                        @(Item.ProductNameEN)
+                    } else
+                    {
+                        @(Item.ProductName)
+                    }
+                </h5>
+                <p class="card-text">
+                    @foreach (var category in Item.Categories)
+                    {
+                        if (EN)
+                        {
+                            @(category.CategoryNameEN + " ")
+                        }
+                        else
+                        {
+                            @(category.CategoryName + " ")
+                        }
+                    }
+                </p>
+                <p class="card-text">
+                    @Resources.Resource.Price:
+                    @if (EN)
+                    {
+                        @(Item.PriceEN)
+                    }
+                    else
+                    {
+                        @(Item.Price)
+                    }
+                    @Resources.Resource.Value
+                </p>
+            </div>
+        </a>
+    }
+</div>

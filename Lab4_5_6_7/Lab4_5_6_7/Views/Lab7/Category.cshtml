@@ -1,0 +1,34 @@
+﻿@model List<Lab4_5_6_7.Models.Category>
+@{
+    bool EN = false;
+    if (Request.Cookies.Get("lang") != null)
+    {
+        if (Request.Cookies.Get("lang").Value == "en")
+        {
+            EN = true;
+        }
+    }
+ }
+<tr>
+    <td class="mb-3">
+        <select name="Categories" class="form-select">
+            <option selected value="-1">- - - -</option>
+            @foreach (var Item in Model)
+            {
+                <option selected value="@Item.Id">
+                    @if (EN)
+                    {
+                        @Item.CategoryNameEN
+                    }
+                    else
+                    {
+                        @Item.CategoryName
+                    }
+                </option>
+            }
+        </select>
+    </td>
+    <td width="20%">
+        <button class="btn btn-danger col-12" onclick="$(this).parent().parent().remove();">@Resources.Resource.Delete</button>
+    </td>
+</tr>

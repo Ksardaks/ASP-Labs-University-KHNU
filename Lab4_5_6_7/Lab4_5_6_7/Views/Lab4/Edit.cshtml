@@ -1,0 +1,45 @@
+﻿@model Lab4_5_6_7.Models.Product
+@using Lab4_5_6_7.Models
+@{
+    ApplicationDbContext Context = new ApplicationDbContext();
+    ViewBag.Title = "Edit";
+}
+
+<div class="row col-12">
+    @using (Html.BeginForm("Edit", "Lab4", FormMethod.Post, new { @class = "text-center row mt-5 text-center", role = "form", enctype = "multipart/form-data" }))
+    {
+        <input hidden name="Id" value="@Model.Id" />
+
+        <label class="col-12 control-label">Назва</label>
+        <input type="text" name="Name" value="@Model.ProductName" class="form-control mb-5" />
+
+        <a class="btn btn-success col-12" data-ajax="true" data-ajax-mode="before" data-ajax-update="#File" href="/Lab4/Category">Додати категорію</a>
+        <table id="File" cellspacing="10" cellpadding="10" class="col-12 mt-5">
+            @if (Model.Categories != null)
+            {
+                foreach (var Item in Model.Categories)
+                {
+                    <tr>
+                        <td class="mb-3 text-center">
+                            <label>@Item.CategoryName<label />
+                        </td>
+                        <td width="20%">
+                            <a data-ajax="true" data-ajax-update="" href="/Product/DeleteCategory?Id=@Item&ModelId=@Model.Id" class="btn btn-danger col-12" onclick="$(this).parent().parent().remove();">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+
+        <label class="col-md-12 control-label">Ціна</label>
+        <input type="number" name="Price" value="@Model.Price" class="form-control mb-5">
+
+        <label class="col-md-12 control-label">Файл</label>
+        <input type="file" name="File" class="form-control mb-5">
+
+        <input type="submit" value="Зберегти" class="btn btn-outline-success col-5" />
+        <a href="~/Lab4/ProductTable" class="btn btn-outline-primary offset-2 col-5">Відмінити</a>
+    }
+</div>
+
